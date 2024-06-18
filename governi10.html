@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Governo Italiano</title>
+	<link rel="stylesheet" href="style.css">
+	
+	<script src="data.js"></script>
+	<script src="utils.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+     
+	<header>
+		<h1>Informazioni sui Governi Italiani</h1>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="governi10.html">Governi degli ultimi 10 anni</a></li>
+			<li><a href="governi20.html">Governi degli ultimi 20 anni</a></li>
+		</ul>
+	</nav>
+    
+    <h1>Percentuale di tempo al governo negli ultimi 10 anni</h1>
+    <p>Questa pagina mostra la percentuale di tempo che ogni schieramento politico (sinistra, destra, tecnico) è stato al governo in Italia negli ultimi 10 anni. I dati sono stati elaborati a partire da una lista di governi italiani, ognuno con la relativa data di inizio e fine, descrizione e schieramento politico.</p>
+    
+	<h2>Risultati al <span class="today"></span></h2>
+    <table id="result-table">
+        <thead>
+            <tr>
+                <th>Schieramento</th>
+                <th>Tempo al governo</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+	
+    <p>Di seguito sono riportati i dati dei governi italiani considerati per il calcolo.</p>
+	<p><span style="font-weight: bold"> ATTENZIONE: la data di partenza della prima riga è il <span class="startingDate"></span>, utilizzata come punto di partenza per il calcolo, non la data di effettivo inizio del governo!</span>	
+	<br/>(La lista completa dei governi a partire dal 30/05/2001 è consultabile <a href="dati.html">qui</a>)</p>
+
+	
+    <table id="input-data">
+        <thead>
+            <tr>
+                <th>Data Inizio</th>
+                <th>Data Fine</th>
+                <th>Descrizione</th>
+                <th>Schieramento</th>
+				<th>Giorni di governo</th>
+            </tr>
+        </thead>
+        <tbody id="data-table">
+        </tbody>
+    </table>
+    
+
+
+    <script>
+	    const today = new Date();
+		const startingDate = new Date(today.getFullYear() - 10, today.getMonth(), today.getDate());
+		calculateAndRender(startingDate);
+		const todayElements = document.getElementsByClassName('today');
+		const todayArray = Array.from(todayElements);
+		todayArray.forEach((element) => {
+			element.textContent = formatDate(today);
+		});
+		
+		const startingDateElements = document.getElementsByClassName('startingDate');
+		const startingDateArray = Array.from(startingDateElements);
+		startingDateArray.forEach((element) => {
+			element.textContent = formatDate(startingDate);
+		});
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Governo Italiano</title>
+	<link rel="stylesheet" href="style.css">
+	
+	<script src="data.js"></script>
+	<script src="utils.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+    <header>
+		<h1>Informazioni sui Governi Italiani</h1>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="governi10.html">Governi degli ultimi 10 anni</a></li>
+			<li><a href="governi20.html">Governi degli ultimi 20 anni</a></li>
+		</ul>
+	</nav>
+    
+    <table id="result-table" style="display:none">
+        <thead>
+            <tr>
+                <th>Schieramento</th>
+                <th>Percentuale al governo sul totale</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+	
+	<h1>Governi a partire dal 30/05/2001</h1>
+		
+    <table>
+        <thead>
+            <tr>
+                <th>Data Inizio</th>
+                <th>Data Fine</th>
+                <th>Descrizione</th>
+                <th>Schieramento</th>
+				<th>Giorni di governo</th>
+            </tr>
+        </thead>
+        <tbody id="data-table">
+        </tbody>
+    </table>
+    
+    <script>
+		calculateAndRender(new Date(2001, 4, 30));
+    </script>
+</body>
+</html>
